@@ -1,11 +1,11 @@
-# Public-traffic-datasets
+# Public-Traffic-Datasets
 
 
 This work presents a comprehensive collection of publicly available traffic datasets for research and applications in transportation, urban planning, and intelligent transportation systems.
 
-⚠️ **Note: This repository is under active development. New datasets and resources are continually being added.** ⚠️
+⚠️ **Note: This repository is under active development. New datasets and resources are continually being added.** 
 
-⚠️ **Important: Due to file size limitations, many of the larger datasets are not directly uploaded to this repository. If you need access to these datasets, please contact us at ttshi3514@163.com or QQ: 1765309248.** ⚠️
+⚠️ **Important: Due to file size limitations, many of the larger datasets are not directly uploaded to this repository. If you need access to these datasets, please contact us at ttshi3514@163.com or QQ: 1765309248.** 
 
 ---
 
