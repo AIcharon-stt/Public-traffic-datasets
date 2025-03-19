@@ -1,6 +1,5 @@
 # Public-traffic-datasets
 
-# Traffic-Datasets-Hub
 
 This work presents a comprehensive collection of publicly available traffic datasets for research and applications in transportation, urban planning, and intelligent transportation systems.
 
