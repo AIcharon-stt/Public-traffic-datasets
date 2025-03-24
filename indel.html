@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>倒计时</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5f5;
+        }
+        .container {
+            width: 90%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #ff0000;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+        }
+        h1 span {
+            display: inline-block;
+            background-color: rgba(249, 249, 249, 0.4);
+            padding: 0.3rem 0.5rem;
+            margin: 0 0.2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .countdown {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        .time-box {
+            margin: 0.5rem;
+            text-align: center;
+        }
+        .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #e74c3c;
+            display: flex;
+            justify-content: center;
+        }
+        .digit {
+            background: rgba(249, 249, 249, 0.9);
+            padding: 0.4rem 0.5rem;
+            margin: 0 0.1rem;
+            border-radius: 8px;
+            min-width: 1rem;
+            display: inline-block;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .label {
+            margin-top: 0.5rem;
+            font-size: 1.2rem;
+            color: #555;
+            font-weight: bold;
+        }
+        .label span {
+            display: inline-block;
+            background-color: rgba(220, 230, 240, 0.9);
+            padding: 0.3rem 0.5rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- HTML内容和JavaScript保持不变 -->
+    <div class="container">
+        <h1>
+            <span>大</span><span>头</span><span>必</span><span>胜</span>
+        </h1>
+        <div class="countdown">
+            <div class="time-box">
+                <div id="days" class="number">0</div>
+                <div class="label"><span>天</span></div>
+            </div>
+            <div class="time-box">
+                <div id="hours" class="number">0</div>
+                <div class="label"><span>时</span></div>
+            </div>
+            <div class="time-box">
+                <div id="minutes" class="number">0</div>
+                <div class="label"><span>分</span></div>
+            </div>
+            <div class="time-box">
+                <div id="seconds" class="number">0</div>
+                <div class="label"><span>秒</span></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript代码保持不变
+        function updateDisplayWithDigits(id, value) {
+            const element = document.getElementById(id);
+            element.innerHTML = '';
+            
+            let valueStr = value.toString();
+            if (valueStr.length < 2) {
+                valueStr = '0' + valueStr;
+            }
+            
+            for (let i = 0; i < valueStr.length; i++) {
+                const digitSpan = document.createElement('span');
+                digitSpan.className = 'digit';
+                digitSpan.textContent = valueStr[i];
+                element.appendChild(digitSpan);
+            }
+        }
+
+        function updateCountdown() {
+            const now = new Date();
+            const targetDate = new Date(2025, 2, 29, 8, 0, 0);
+            const diff = targetDate - now;
+            
+            if (diff < 0) {
+                updateDisplayWithDigits('days', 0);
+                updateDisplayWithDigits('hours', 0);
+                updateDisplayWithDigits('minutes', 0);
+                updateDisplayWithDigits('seconds', 0);
+                return;
+            }
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            updateDisplayWithDigits('days', days);
+            updateDisplayWithDigits('hours', hours);
+            updateDisplayWithDigits('minutes', minutes);
+            updateDisplayWithDigits('seconds', seconds);
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
